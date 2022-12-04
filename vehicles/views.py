@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from rest_framework import viewsets
 
-# Create your views here.
+from vehicles.models import Brand
+from vehicles.serializers import BrandSerializer
+
+
+class BrandAPIView(viewsets.ReadOnlyModelViewSet):
+    queryset = Brand.objects.all()
+    serializer_class = BrandSerializer
