@@ -38,6 +38,7 @@ class Series(models.Model):
     class Meta:
         verbose_name = 'Серия'
         verbose_name_plural = 'Серии'
+        ordering = ['name']
 
 
 class Generation(models.Model):
@@ -52,3 +53,4 @@ class Generation(models.Model):
     class Meta:
         verbose_name = 'Поколение'
         verbose_name_plural = 'Поколения'
+        ordering = ['start_year']
