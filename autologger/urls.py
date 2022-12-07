@@ -21,7 +21,7 @@ from rest_framework import routers
 from vehicles import views
 
 router = routers.DefaultRouter()
-router.register(r'brand', views.BrandAPIView)
+router.register(r'brands', views.BrandAPIView)
 
 urlpatterns = [
     path('', include(router.urls)),
