@@ -30,7 +30,7 @@ class Brand(models.Model):
 
 class Series(models.Model):
     name = models.CharField(max_length=255, verbose_name='Наименование')
-    brand = models.ForeignKey('Brand', on_delete=models.PROTECT, verbose_name='Бренд')
+    brand = models.ForeignKey('Brand', on_delete=models.PROTECT, verbose_name='Бренд', related_name='series')
 
     def __str__(self):
         return self.brand.name + " " + self.name
