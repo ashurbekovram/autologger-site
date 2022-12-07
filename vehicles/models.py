@@ -26,3 +26,29 @@ class Brand(models.Model):
         verbose_name = 'Бренд'
         verbose_name_plural = 'Бренды'
         ordering = ['name']
+
+
+class Series(models.Model):
+    name = models.CharField(max_length=255, verbose_name='Наименование')
+    brand = models.ForeignKey('Brand', on_delete=models.PROTECT, verbose_name='Бренд')
+
+    def __str__(self):
+        return self.brand.name + " " + self.name
+
+    class Meta:
+        verbose_name = 'Серия'
+        verbose_name_plural = 'Серии'
+
+
+class Generation(models.Model):
+    name = models.CharField(max_length=255, verbose_name='Наименование')
+    start_year = models.PositiveIntegerField(verbose_name='Начало производства')
+    end_year = models.PositiveIntegerField(verbose_name='Конец производства')
+    series = models.ForeignKey('Series', on_delete=models.PROTECT, verbose_name='Серия')
+
+    def __str__(self):
+        return self.name
+
+    class Meta:
+        verbose_name = 'Поколение'
+        verbose_name_plural = 'Поколения'
