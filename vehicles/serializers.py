@@ -12,7 +12,7 @@ class CountrySerializer(serializers.ModelSerializer):
 class GenerationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Generation
-        fields = '__all__'
+        fields = ('id', 'name', 'start_year', 'end_year')
 
 
 class BrandSeriesSerializer(serializers.ModelSerializer):
