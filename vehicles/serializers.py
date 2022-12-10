@@ -9,10 +9,18 @@ class CountrySerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class GenerationSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Generation
+        fields = '__all__'
+
+
 class BrandSeriesSerializer(serializers.ModelSerializer):
+    generations = GenerationSerializer(many=True, read_only=True)
+
     class Meta:
         model = Series
-        fields = ('id', 'name')
+        fields = ('id', 'name', 'generations')
 
 
 class BrandSerializer(serializers.ModelSerializer):

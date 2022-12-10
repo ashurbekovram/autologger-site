@@ -45,7 +45,7 @@ class Generation(models.Model):
     name = models.CharField(max_length=255, verbose_name='Наименование')
     start_year = models.PositiveIntegerField(verbose_name='Начало производства')
     end_year = models.PositiveIntegerField(verbose_name='Конец производства')
-    series = models.ForeignKey('Series', on_delete=models.PROTECT, verbose_name='Серия')
+    series = models.ForeignKey('Series', on_delete=models.PROTECT, verbose_name='Серия', related_name='generations')
 
     def __str__(self):
         return self.name
